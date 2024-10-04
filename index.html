@@ -1,108 +1,214 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زر متوهج مع تأثير ضوء دوار</title>
+    <title>تسجيل حساب جديد</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #FFFFFF; /* لون الخلفية */
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
         }
 
-        .container {
-            width: 143px; /* يمكن تغيير هذا الحجم */
-            height: 75px; /* يمكن تغيير هذا الحجم */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* لإخفاء الأجزاء الزائدة */
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 300px;
         }
 
-        .glowing-wrapper {
+        .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
             position: relative;
-            width: 200px; /* حجم الزر */
-            height: 200px; /* حجم الزر */
-            box-shadow: 16px 14px 20px #0000008c; /* تأثير الظل */
-            border-radius: 5px; /* زوايا مدورة */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            opacity: 0; /* تبدأ مخفية */
+            transform: translateY(20px); /* تبدأ من أسفل */
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        .glowing-wrapper::before {
-            content: "";
-            background-image: conic-gradient(#f21d00 20deg, transparent 120deg); /* تأثير الضوء الدوار */
-            width: 250%;
-            height: 350%;
+        .form-group.active {
+            opacity: 1;
+            transform: translateY(0); /* تعود إلى مكانها */
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        .form-group i {
             position: absolute;
-            animation: rotate 2s linear infinite; /* تأثير الحركة */
+            right: 10px;
+            top: 12px;
+            color: #ff69b4; /* لون السهم الوردي */
+            transition: color 0.3s ease;
         }
 
-        .button-verified {
-            background-color: #4CAF50; /* اللون الأساسي */
-            border: 5px solid transparent; /* بدون حدود ظاهرة */
-            border-radius: 8px; /* زوايا مدورة */
-            color: white; /* لون النص */
-            padding: 15px 32px; /* تباعد داخلي */
-            text-align: center; /* محاذاة النص */
-            text-decoration: none; /* إزالة التسطير */
-            display: flex; /* يجعل الزر في سطر */
-            align-items: center; /* محاذاة النص عمودياً */
-            font-size: 16px; /* حجم الخط */
-            cursor: pointer; /* شكل المؤشر */
-            position: relative; /* لموضع العناصر الفرعية */
-            z-index: 1; /* لضمان ظهور الزر فوق تأثير الضوء */
+        .form-group.success i {
+            color: #28a745; /* اللون الأخضر عند النجاح */
         }
 
-        .button-verified:hover {
-            transform: scale(1.05); /* تكبير الزر عند التحويم */
-            transition: transform 0.2s; /* تأثير التحويل عند التحويم */
+        .form-group.error i {
+            color: #dc3545; /* اللون الأحمر عند الخطأ */
         }
 
-        .button-verified .lord-icon {
-            margin-right: 10px; /* تباعد بين الأيقونة والنص */
-            width: 30px; /* حجم الأيقونة */
-            height: 30px; /* حجم الأيقونة */
+        .form-group.error input {
+            border-color: #dc3545;
         }
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        /* نمط الكتابة المتدرجة */
+        .welcome-message {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            opacity: 1; /* جعل الرسالة الترحيبية مرئية */
+            white-space: pre; /* يسمح بظهور النص كما هو */
         }
     </style>
-    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="glowing-wrapper">
-        <button class="button-verified">
-            <lord-icon
-                src="https://cdn.lordicon.com/kpnkzylb.json"
-                trigger="loop"
-                delay="2000"
-                state="hover-rotation"
-                colors="primary:#ffffff,secondary:#ffffff,tertiary:#ffffff,quaternary:#ffffff,quinary:#ffffff"
-                style="width:30px;height:30px">
-            </lord-icon>
-            إرسال
-        </button>
+<div class="form-container">
+    <h2>إنشاء حساب جديد</h2>
+    <div class="welcome-message" id="welcome-message">
+        مرحباً بك! يرجى إدخال بريدك الإلكتروني لإنشاء حساب جديد معنا.
     </div>
+    <div class="form-group" id="email-group">
+        <input type="email" id="email" placeholder="البريد الإلكتروني" maxlength="22">
+        <i class="status-icon">→</i>
+    </div>
+    <div class="form-group" id="username-group">
+        <input type="text" id="username" placeholder="اسم المستخدم" maxlength="14">
+        <i class="status-icon">→</i>
+    </div>
+    <div class="form-group" id="password-group">
+        <input type="password" id="password" placeholder="كلمة المرور" maxlength="6">
+        <i class="status-icon">→</i>
+    </div>
+    <div class="message" id="message"></div>
 </div>
 
+<script>
+    const emailInput = document.getElementById('email');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const messageDiv = document.getElementById('message');
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    // وظيفة لإظهار النص بشكل تدريجي
+    function typeWelcomeMessage(message, index = 0) {
+        if (index < message.length) {
+            welcomeMessage.textContent += message.charAt(index);
+            index++;
+            setTimeout(() => typeWelcomeMessage(message, index), 50); // يمكن ضبط السرعة هنا
+        }
+    }
+
+    // عرض الرسالة الترحيبية تلقائيًا بعد تحميل الصفحة
+    window.onload = function() {
+        welcomeMessage.textContent = ""; // مسح النص الحالي
+        typeWelcomeMessage("مرحباً بك! يرجى إدخال بريدك الإلكتروني");
+        showNextField('email-group'); // إظهار حقل البريد الإلكتروني
+    };
+
+    // عند إدخال البريد الإلكتروني
+    emailInput.addEventListener('input', function() {
+        if (emailInput.value.length === 22 && validateEmail(emailInput.value)) {
+            showSuccess(emailInput);
+            showNextField('username-group'); // إظهار حقل اسم المستخدم
+        } else if (emailInput.value.length < 22) {
+            showError(emailInput, 'البريد الإلكتروني يجب أن يكون 22 حرف بالضبط');
+        } else {
+            showError(emailInput, 'البريد الإلكتروني غير صالح');
+        }
+    });
+
+    // عند إدخال اسم المستخدم
+    usernameInput.addEventListener('input', function() {
+        if (usernameInput.value.length === 14) {
+            showSuccess(usernameInput);
+            showNextField('password-group'); // إظهار حقل كلمة المرور
+        } else if (usernameInput.value.length < 14) {
+            showError(usernameInput, 'اسم المستخدم يجب أن يكون 14 حرف بالضبط');
+        }
+    });
+
+    // عند إدخال كلمة المرور
+    passwordInput.addEventListener('input', function() {
+        if (passwordInput.value.length === 6) {
+            showSuccess(passwordInput);
+            messageDiv.textContent = 'كل الحقول مكتملة!';
+            messageDiv.style.color = '#28a745'; // اللون الأخضر
+        } else if (passwordInput.value.length < 6) {
+            showError(passwordInput, 'كلمة المرور يجب أن تكون 6 أحرف بالضبط');
+        }
+    });
+
+    // إظهار الحقل التالي
+    function showNextField(id) {
+        const nextField = document.getElementById(id);
+        nextField.classList.add('active'); // إضافة الفئة النشطة
+    }
+
+    // التحقق من البريد الإلكتروني
+    function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    // عرض رسالة النجاح
+    function showSuccess(input) {
+        const formGroup = input.parentElement;
+        formGroup.className = 'form-group success';
+        const icon = formGroup.querySelector('i');
+        icon.textContent = '✔';
+    }
+
+    // عرض رسالة الخطأ مع إظهار الحقل بشكل تدريجي
+    function showError(input, message) {
+        const formGroup = input.parentElement;
+        formGroup.className = 'form-group error';
+        const icon = formGroup.querySelector('i');
+        icon.textContent = '✖';
+        messageDiv.textContent = message;
+        messageDiv.style.color = '#dc3545'; // اللون الأحمر
+        formGroup.classList.add('active'); // إظهار الحقل الذي به خطأ
+    }
+</script>
+
 </body>
-</html> 
+</html>
