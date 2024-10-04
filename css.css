@@ -1,0 +1,79 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FFFFFF; /* لون الخلفية */
+        }
+
+        .container {
+            width: 143px; /* يمكن تغيير هذا الحجم */
+            height: 75px; /* يمكن تغيير هذا الحجم */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* لإخفاء الأجزاء الزائدة */
+        }
+
+        .glowing-wrapper {
+            position: relative;
+            width: 200px; /* حجم الزر */
+            height: 200px; /* حجم الزر */
+            box-shadow: 16px 14px 20px #0000008c; /* تأثير الظل */
+            border-radius: 5px; /* زوايا مدورة */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glowing-wrapper::before {
+            content: "";
+            background-image: conic-gradient(#f21d00 20deg, transparent 120deg); /* تأثير الضوء الدوار */
+            width: 250%;
+            height: 350%;
+            position: absolute;
+            animation: rotate 2s linear infinite; /* تأثير الحركة */
+        }
+
+        .button-verified {
+            background-color: #4CAF50; /* اللون الأساسي */
+            border: 5px solid transparent; /* بدون حدود ظاهرة */
+            border-radius: 8px; /* زوايا مدورة */
+            color: white; /* لون النص */
+            padding: 15px 32px; /* تباعد داخلي */
+            text-align: center; /* محاذاة النص */
+            text-decoration: none; /* إزالة التسطير */
+            display: flex; /* يجعل الزر في سطر */
+            align-items: center; /* محاذاة النص عمودياً */
+            font-size: 16px; /* حجم الخط */
+            cursor: pointer; /* شكل المؤشر */
+            position: relative; /* لموضع العناصر الفرعية */
+            z-index: 1; /* لضمان ظهور الزر فوق تأثير الضوء */
+        }
+
+        .button-verified:hover {
+            transform: scale(1.05); /* تكبير الزر عند التحويم */
+            transition: transform 0.2s; /* تأثير التحويل عند التحويم */
+        }
+
+        .button-verified .lord-icon {
+            margin-right: 10px; /* تباعد بين الأيقونة والنص */
+            width: 30px; /* حجم الأيقونة */
+            height: 30px; /* حجم الأيقونة */
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        } 
