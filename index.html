@@ -1,214 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل حساب جديد</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f7f7f7;
-        }
 
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 300px;
-        }
+<!doctype html>
+<html translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
 
-        .form-container h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KTLCWL7H');
+    </script>
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
+    <!-- clarity -->
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'fu4ersl4ha');
+    </script>
+
+    <!-- Hotjar Tracking Code for Site 5110225 (name missing) -->
+    <script>
+      (function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 5110225, hjsv: 6 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+    <script>
+      !(function () {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console && console.error && console.error('Snippet included twice.');
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              'trackSubmit',
+              'trackClick',
+              'trackLink',
+              'trackForm',
+              'pageview',
+              'identify',
+              'reset',
+              'group',
+              'track',
+              'ready',
+              'alias',
+              'debug',
+              'page',
+              'once',
+              'off',
+              'on',
+              'addSourceMiddleware',
+              'addIntegrationMiddleware',
+              'setAnonymousId',
+              'addDestinationMiddleware',
+            ];
+            analytics.factory = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments);
+                t.unshift(e);
+                analytics.push(t);
+                return analytics;
+              };
+            };
+            for (var e = 0; e < analytics.methods.length; e++) {
+              var key = analytics.methods[e];
+              analytics[key] = analytics.factory(key);
             }
-        }
+            analytics.load = function (key, e) {
+              var t = document.createElement('script');
+              t.type = 'text/javascript';
+              t.async = !0;
+              t.src =
+                'https://cdp.customer.io/v1/analytics-js/snippet/' + key + '/analytics.min.js';
+              var n = document.getElementsByTagName('script')[0];
+              n.parentNode.insertBefore(t, n);
+              analytics._writeKey = key;
+              analytics._loadOptions = e;
+            };
+            analytics.SNIPPET_VERSION = '4.15.3';
+            analytics.load('89686cd77007093700c4');
+            analytics.page();
+          }
+      })();
+    </script>
 
-        .form-group {
-            margin-bottom: 15px;
-            position: relative;
-            opacity: 0; /* تبدأ مخفية */
-            transform: translateY(20px); /* تبدأ من أسفل */
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 
-        .form-group.active {
-            opacity: 1;
-            transform: translateY(0); /* تعود إلى مكانها */
-        }
+    <!-- Using Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300&family=Tajawal:wght@200;300;400;500;700;800;900&family=Pathway+Gothic+One&display=swap"
+      rel="stylesheet"
+    />
+    <title>Araby Ai - Dashbaord</title>
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
+    <meta
+      name="description"
+      content="Introducing Araby.ai, the ultimate productivity Ai designed to empower your workflow with cutting-edge AI tools in both Arabic and English."
+    />
+    <meta
+      name="keywords"
+      content="Ai,Ai Image,Ai text Editor,Free,ai audio enhance,ai video enhance"
+    />
+    <script type="module" crossorigin src="/assets/js/index-b704eba1-1.0.2.js"></script>
+    <link rel="stylesheet" href="/assets/css/index-6e343667-1.0.2.css">
+  </head>
 
-        .form-group input:focus {
-            outline: none;
-            border-color: #007BFF;
-        }
-
-        .form-group i {
-            position: absolute;
-            right: 10px;
-            top: 12px;
-            color: #ff69b4; /* لون السهم الوردي */
-            transition: color 0.3s ease;
-        }
-
-        .form-group.success i {
-            color: #28a745; /* اللون الأخضر عند النجاح */
-        }
-
-        .form-group.error i {
-            color: #dc3545; /* اللون الأحمر عند الخطأ */
-        }
-
-        .form-group.error input {
-            border-color: #dc3545;
-        }
-
-        .message {
-            text-align: center;
-            margin-top: 10px;
-            color: #333;
-        }
-
-        /* نمط الكتابة المتدرجة */
-        .welcome-message {
-            text-align: center;
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-            opacity: 1; /* جعل الرسالة الترحيبية مرئية */
-            white-space: pre; /* يسمح بظهور النص كما هو */
-        }
-    </style>
-</head>
-<body>
-
-<div class="form-container">
-    <h2>إنشاء حساب جديد</h2>
-    <div class="welcome-message" id="welcome-message">
-        مرحباً بك! يرجى إدخال بريدك الإلكتروني لإنشاء حساب جديد معنا.
-    </div>
-    <div class="form-group" id="email-group">
-        <input type="email" id="email" placeholder="البريد الإلكتروني" maxlength="22">
-        <i class="status-icon">→</i>
-    </div>
-    <div class="form-group" id="username-group">
-        <input type="text" id="username" placeholder="اسم المستخدم" maxlength="14">
-        <i class="status-icon">→</i>
-    </div>
-    <div class="form-group" id="password-group">
-        <input type="password" id="password" placeholder="كلمة المرور" maxlength="6">
-        <i class="status-icon">→</i>
-    </div>
-    <div class="message" id="message"></div>
-</div>
-
-<script>
-    const emailInput = document.getElementById('email');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const messageDiv = document.getElementById('message');
-    const welcomeMessage = document.getElementById('welcome-message');
-
-    // وظيفة لإظهار النص بشكل تدريجي
-    function typeWelcomeMessage(message, index = 0) {
-        if (index < message.length) {
-            welcomeMessage.textContent += message.charAt(index);
-            index++;
-            setTimeout(() => typeWelcomeMessage(message, index), 50); // يمكن ضبط السرعة هنا
-        }
-    }
-
-    // عرض الرسالة الترحيبية تلقائيًا بعد تحميل الصفحة
-    window.onload = function() {
-        welcomeMessage.textContent = ""; // مسح النص الحالي
-        typeWelcomeMessage("مرحباً بك! يرجى إدخال بريدك الإلكتروني");
-        showNextField('email-group'); // إظهار حقل البريد الإلكتروني
-    };
-
-    // عند إدخال البريد الإلكتروني
-    emailInput.addEventListener('input', function() {
-        if (emailInput.value.length === 22 && validateEmail(emailInput.value)) {
-            showSuccess(emailInput);
-            showNextField('username-group'); // إظهار حقل اسم المستخدم
-        } else if (emailInput.value.length < 22) {
-            showError(emailInput, 'البريد الإلكتروني يجب أن يكون 22 حرف بالضبط');
-        } else {
-            showError(emailInput, 'البريد الإلكتروني غير صالح');
-        }
-    });
-
-    // عند إدخال اسم المستخدم
-    usernameInput.addEventListener('input', function() {
-        if (usernameInput.value.length === 14) {
-            showSuccess(usernameInput);
-            showNextField('password-group'); // إظهار حقل كلمة المرور
-        } else if (usernameInput.value.length < 14) {
-            showError(usernameInput, 'اسم المستخدم يجب أن يكون 14 حرف بالضبط');
-        }
-    });
-
-    // عند إدخال كلمة المرور
-    passwordInput.addEventListener('input', function() {
-        if (passwordInput.value.length === 6) {
-            showSuccess(passwordInput);
-            messageDiv.textContent = 'كل الحقول مكتملة!';
-            messageDiv.style.color = '#28a745'; // اللون الأخضر
-        } else if (passwordInput.value.length < 6) {
-            showError(passwordInput, 'كلمة المرور يجب أن تكون 6 أحرف بالضبط');
-        }
-    });
-
-    // إظهار الحقل التالي
-    function showNextField(id) {
-        const nextField = document.getElementById(id);
-        nextField.classList.add('active'); // إضافة الفئة النشطة
-    }
-
-    // التحقق من البريد الإلكتروني
-    function validateEmail(email) {
-        const re = /\S+@\S+\.\S+/;
-        return re.test(email);
-    }
-
-    // عرض رسالة النجاح
-    function showSuccess(input) {
-        const formGroup = input.parentElement;
-        formGroup.className = 'form-group success';
-        const icon = formGroup.querySelector('i');
-        icon.textContent = '✔';
-    }
-
-    // عرض رسالة الخطأ مع إظهار الحقل بشكل تدريجي
-    function showError(input, message) {
-        const formGroup = input.parentElement;
-        formGroup.className = 'form-group error';
-        const icon = formGroup.querySelector('i');
-        icon.textContent = '✖';
-        messageDiv.textContent = message;
-        messageDiv.style.color = '#dc3545'; // اللون الأحمر
-        formGroup.classList.add('active'); // إظهار الحقل الذي به خطأ
-    }
-</script>
-
-</body>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KTLCWL7H"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      const global = globalThis;
+    </script>
+    
+  </body>
 </html>
